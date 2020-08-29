@@ -1,0 +1,26 @@
+{
+  "name": "yellowfruit.net",
+  "version": "0.0.0",
+  "description": "website",
+  "private": true,
+  "scripts": {
+    "build": "webpack --config webpack.prod.js",
+    "watch": "webpack --config webpack.dev.js --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chr1sto14/yellowfruit.net.git"
+  },
+  "author": "cmiller@yellowfruit.net",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chr1sto14/yellowfruit.net/issues"
+  },
+  "homepage": "https://github.com/chr1sto14/yellowfruit.net#readme",
+  "devDependencies": {
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-merge": "^5.1.2"
+  }
+}
