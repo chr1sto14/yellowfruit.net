@@ -13,23 +13,38 @@ body {
     background: yellow;
     user-select: none;
     display: grid;
-    grid-template-columns: 20em auto auto;
     grid-template-rows: 2.5em auto 2.5em;
     grid-gap: 0.25em;
     grid-template-areas:
-        'header main main'
-        'nav main main'
-        'nav footer footer';
+        'header'
+        'main'
+        'footer';
 }
 
 header {
     grid-area: header;
     background: pink;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
 }
 
 nav {
-    grid-area: nav;
     background: green;
+    display: flex;
+    height: 100%;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
 
 main {
