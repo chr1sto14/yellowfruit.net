@@ -1,4 +1,4 @@
-import './app.css';
+import './app.scss';
 
 import Main from './main.ts';
 import Nav from './nav.ts';

@@ -9,6 +9,14 @@ module.exports = merge(common, {
     module: {
         rules: [
             {
+                test: /\.s[ac]ss$/i,
+                use: [
+                    'style-loader',
+                    'css-loader',
+                    'sass-loader',
+                ],
+            },
+            {
                 enforce: 'pre',
                 test: /\.tsx?$/,
                 exclude: /node_modules/,
