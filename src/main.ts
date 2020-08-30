@@ -1,7 +1,7 @@
 export default class Main {
-    _el: HTMLElement
+    el: HTMLElement
 
     constructor(el: HTMLElement) {
-        this._el = el
+      this.el = el;
     }
 }
