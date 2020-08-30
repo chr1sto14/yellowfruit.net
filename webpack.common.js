@@ -1,9 +1,9 @@
 const path = require("path");
 
 module.exports = {
-    entry: "./src/app.js",
+    entry: "./src/app.ts",
     output: {
-        filename: "main.js",
+        filename: "app.js",
         path: path.resolve(__dirname, "public"),
     },
     module: {
@@ -15,6 +15,11 @@ module.exports = {
                     'css-loader',
                 ],
             },
+            { test: /\.tsx?$/, loader: "ts-loader" }
         ],
+    },
+    resolve: {
+        // Add `.ts` and `.tsx` as a resolvable extension.
+        extensions: [".ts", ".tsx", ".js"]
     },
 };

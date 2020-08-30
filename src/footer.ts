@@ -1,5 +1,7 @@
 export default class Footer {
-    constructor({ el }) {
+    _el: HTMLElement
+
+    constructor(el: HTMLElement) {
         this._el = el
     }
 }
