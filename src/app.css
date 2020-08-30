@@ -1,0 +1,43 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    width: 100%;
+    max-width: 1200px;
+    min-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: serif;
+    background: yellow;
+    user-select: none;
+    display: grid;
+    grid-template-columns: 20em auto auto;
+    grid-template-rows: 2.5em auto 2.5em;
+    grid-gap: 0.25em;
+    grid-template-areas:
+        'header main main'
+        'nav main main'
+        'nav footer footer';
+}
+
+header {
+    grid-area: header;
+    background: pink;
+}
+
+nav {
+    grid-area: nav;
+    background: green;
+}
+
+main {
+    grid-area: main;
+    background: blue;
+}
+
+footer {
+    grid-area: footer;
+    background: orange;
+}
