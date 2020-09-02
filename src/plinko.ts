@@ -1,3 +1,5 @@
+import './plinko.scss';
+
 export default class Plinko {
     el: HTMLElement
 
@@ -7,8 +9,8 @@ export default class Plinko {
       params.has('nada');
       this.el = document.createElement('div');
       this.canvas = document.createElement('canvas');
-      this.canvas.width = 768;
-      this.canvas.height = 768;
+      this.canvas.width = window.screen.availWidth;
+      this.canvas.height = window.screen.availHeight;
       this.el.appendChild(this.canvas);
     }
 

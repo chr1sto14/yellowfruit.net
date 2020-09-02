@@ -1,0 +1,13 @@
+@import './colors.scss';
+
+div {
+    align-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    canvas {
+        background: black;
+    }
+}
