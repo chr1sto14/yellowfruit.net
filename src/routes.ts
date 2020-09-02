@@ -1,21 +1,9 @@
 import Plinko from './plinko.ts';
 
-interface El {
-    el: HTMLElement
-}
-
-interface Route {
-    name: string
-    path: string
-    fn: () => El
-}
-
-const routes :Route[] = [
+export default [
   {
     name: 'plinko',
     path: '#/plinko',
-    fn: () => new Plinko(),
+    setup: (params: URLSearchParams) => new Plinko(params),
   },
 ];
-
-export default routes;
