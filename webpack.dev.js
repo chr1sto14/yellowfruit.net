@@ -6,6 +6,10 @@ const common = require("./webpack.common.js")
 module.exports = merge(common, {
     mode: "development",
     devtool: "inline-source-map",
+    output: {
+        filename: "app.js",
+        path: path.resolve("public"),
+    },
     module: {
         rules: [
             {

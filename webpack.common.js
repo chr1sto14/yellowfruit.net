@@ -3,10 +3,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
     entry: "./src/app.ts",
-    output: {
-        filename: "app.js",
-        path: path.resolve("public"),
-    },
     module: {
         rules: [
             {

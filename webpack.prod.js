@@ -27,9 +27,13 @@ module.exports = merge(common, {
             new OptimizeCSSAssetsPlugin({}),
         ],
     },
+    output: {
+        filename: "app.[contenthash].js",
+        path: path.resolve("public"),
+    },
     plugins: [
         new MiniCssExtractPlugin({
-            filename: "app.css",
+            filename: "app.[contenthash].css",
         }),
     ],
 });
