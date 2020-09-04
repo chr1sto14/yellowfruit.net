@@ -5,13 +5,13 @@ $tablet-width: 768px;
 $min-width: 320px;
 
 html {
-    background: $color-primary-1;
+    background: $color-primary-4;
     height: 100%;
     margin: 0;
 }
 
 body {
-    background: $color-primary-4;
+    background: $color-primary-1;
     display: grid;
     font-family: serif;
     font-size: large;
@@ -42,6 +42,7 @@ header {
     padding: 0.5em 0;
     a {
         text-decoration: none;
+        font-size: xx-large;
     }
 }
 
@@ -86,20 +87,15 @@ nav {
 }
 
 main {
-    background: $color-primary-0;
+    background: $color-primary-2;
     border: 0.25em solid $color-dark-primary-4;
+    border-radius: 3px;
     grid-area: main;
     margin: 0.5em;
     height: min-content;
     padding: 0.5em;
     &:empty {
         display: none;
-    }
-}
-
-@media (max-width: $tablet-width) {
-    main {
-        height: 100%;
     }
 }
 
