@@ -58,6 +58,7 @@ header {
         box-shadow: 0 2px 6px rgba(100, 100, 100, 0.3);
         font-size: xx-large;
         margin-bottom: 0.25em;
+        text-align: center;
         text-decoration: none;
     }
     nav {
@@ -116,6 +117,7 @@ header {
             grid-area: logo;
             background: none;
             box-shadow: none;
+            margin: 0;
         }
         input#nav + label#nav_label ~ nav {
             display: none;
