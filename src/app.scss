@@ -12,7 +12,7 @@ html {
 
 body {
     display: grid;
-    font-family: serif;
+    font-family: sans-serif;
     font-size: large;
     grid-gap: 0.5em;
     grid-template-areas:
@@ -20,8 +20,8 @@ body {
         'footer main';
     grid-template-columns: 10em auto;
     grid-template-rows: auto 2.5em;
-    height: 95%;
-    margin: 1.5% auto;
+    height: 97vh;
+    margin: 1vh auto;
     max-width: $max-width;
     min-width: $min-width;
     width: 100%;
@@ -29,12 +29,14 @@ body {
 
 @media (max-width: $tablet-width) {
     body {
-        align-items: center;
         align-content: flex-start;
+        align-items: center;
         display: flex;
         flex-direction: column;
         flex-wrap: nowrap;
+        height: 100%;
         justify-content: flex-start;
+        margin: 0 auto;
     }
 }
 
@@ -43,7 +45,8 @@ header {
     flex-direction: column;
     grid-area: header;
     height: min-content;
-    margin: 0;
+    margin: 0 0 0 0.25em;
+    user-select: none;
     input#nav {
         display: none;
     }
@@ -54,7 +57,7 @@ header {
         background: $color-primary-1;
         box-shadow: 0 2px 6px rgba(100, 100, 100, 0.3);
         font-size: xx-large;
-        margin-bottom: 0.5em;
+        margin-bottom: 0.25em;
         text-decoration: none;
     }
     nav {
@@ -93,8 +96,9 @@ header {
         grid-template-areas:
             'menu logo'
             'subnav subnav';
-        grid-template-columns: 20% auto;
+        grid-template-columns: 15vw auto;
         grid-template-rows: 2.5em auto;
+        margin: 0;
         padding: 0;
         width: 100%;
         label#nav_label {
@@ -136,6 +140,7 @@ main {
     box-shadow: 0 2px 6px rgba(100, 100, 100, 0.3);
     grid-area: main;
     height: min-content;
+    margin-right: 0.25em;
     &:empty {
         display: none;
     }
@@ -176,11 +181,15 @@ footer {
     font-size: small;
     grid-area: footer;
     justify-content: space-evenly;
+    margin: 0 0 0 0.25em;
+    user-select: none;
+    width: 100%;
     a {
         color: black;
         text-align: center;
         text-decoration: none;
-        &:hover {
+        width: 100%;
+        &:hover,:active {
             font-weight: bold;
         }
     }
@@ -188,7 +197,7 @@ footer {
 
 @media (max-width: $tablet-width) {
     footer {
-        margin-top: auto;
+        margin: auto 0 0 0;
         width: 100%;
     }
 }
