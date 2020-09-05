@@ -17,10 +17,9 @@ body {
     grid-gap: 0.5em;
     grid-template-areas:
         'header main'
-        'nav main'
         'footer main';
     grid-template-columns: 10em auto;
-    grid-template-rows: 2.5em auto 2.5em;
+    grid-template-rows: auto 2.5em;
     height: 95%;
     margin: 1.5% auto;
     max-width: $max-width;
@@ -40,55 +39,46 @@ body {
 }
 
 header {
-    background: $color-primary-1;
-    box-shadow: 0 2px 6px rgba(100, 100, 100, 0.3);
-    grid-area: header;
-    margin: 0;
-    padding: 0.5em 0;
-    a {
-        font-size: xx-large;
-        text-decoration: none;
-    }
-}
-
-@media (max-width: $tablet-width) {
-    header {
-        border-right: none;
-        padding: 0;
-        width: 100%;
-    }
-}
-
-nav {
-    align-items: flex-start;
-    background: $color-primary-1;
-    box-shadow: 0 2px 6px rgba(100, 100, 100, 0.3);
     display: flex;
-    flex-wrap: nowrap;
     flex-direction: column;
-    grid-area: nav;
+    grid-area: header;
     height: min-content;
-    justify-content: flex-start;
+    margin: 0;
     input#nav {
         display: none;
     }
     label#nav_label {
-        cursor: pointer;
         display: none;
-        text-align: center;
     }
-    ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        li {
-            padding: 0.5em;
-            a {
-                color: black;
-                text-align: center;
-                text-decoration: none;
-                &:hover {
-                    font-weight: bold;
+    a#yellowfruit {
+        background: $color-primary-1;
+        box-shadow: 0 2px 6px rgba(100, 100, 100, 0.3);
+        font-size: xx-large;
+        margin-bottom: 0.5em;
+        text-decoration: none;
+    }
+    nav {
+        align-items: flex-start;
+        background: $color-primary-1;
+        box-shadow: 0 2px 6px rgba(100, 100, 100, 0.3);
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: column;
+        height: min-content;
+        justify-content: flex-start;
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            li {
+                padding: 0.5em;
+                a {
+                    color: black;
+                    text-align: center;
+                    text-decoration: none;
+                    &:hover {
+                        font-weight: bold;
+                    }
                 }
             }
         }
@@ -96,23 +86,46 @@ nav {
 }
 
 @media (max-width: $tablet-width) {
-    nav {
-        align-items: center;
-        height: min-content;
+    header {
+        background: $color-primary-1;
+        box-shadow: 0 2px 6px rgba(100, 100, 100, 0.3);
+        display: grid;
+        grid-template-areas:
+            'menu logo'
+            'subnav subnav';
+        grid-template-columns: 20% auto;
+        grid-template-rows: 2.5em auto;
         padding: 0;
         width: 100%;
         label#nav_label {
+            cursor: pointer;
             display: block;
-            width: 100%;
+            font-size: 2em;
+            grid-area: menu;
+            padding: 0 0.25em;
+            width: 1em;
             &:hover {
                 background: $color-primary-4;
             }
         }
-        input#nav + label#nav_label + ul {
+        a#yellowfruit {
+            grid-area: logo;
+            background: none;
+            box-shadow: none;
+        }
+        input#nav + label#nav_label ~ nav {
             display: none;
         }
-        input#nav:checked + label#nav_label + ul {
+        input#nav:checked + label#nav_label ~ nav {
             display: block;
+        }
+        nav {
+            align-items: center;
+            background: none;
+            box-shadow: none;
+            grid-area: subnav;
+            height: min-content;
+            padding: 0;
         }
     }
 }
@@ -123,7 +136,6 @@ main {
     box-shadow: 0 2px 6px rgba(100, 100, 100, 0.3);
     grid-area: main;
     height: min-content;
-    padding: 0.5em;
     &:empty {
         display: none;
     }
