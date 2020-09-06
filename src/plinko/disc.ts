@@ -1,4 +1,3 @@
-
 import { Bodies } from 'matter-js';
 
 export default class Disc {
