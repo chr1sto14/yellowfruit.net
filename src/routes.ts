@@ -1,4 +1,4 @@
-import Plinko from './plinko.ts';
+import Plinko from './plinko/plinko.ts';
 
 export default [
   {
