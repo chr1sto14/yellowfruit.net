@@ -1,28 +1,21 @@
-interface ElCloser {
-    el: HTMLElement
+interface Closer {
     close: () => void
 }
 
 interface Route {
     path: string
-    setup: (params: URLSearchParams) => ElCloser
-}
-
-interface RegexRoute {
-    path: string
-    setup: () => ElCloser
-    regex: RegExp
+    setup: (el: HTMLElement, makeClose: (f: () => void) => void, params: URLSearchParams) => void
 }
 
 export default class Router {
-    content: HTMLElement
+    el: HTMLElement
 
-    current: ElCloser
+    currentClose: () => void
 
     routes: Route[]
 
-    constructor(routes: Route[], content: HTMLElement) {
-      this.content = content;
+    constructor(routes: Route[], el: HTMLElement) {
+      this.el = el;
       this.routes = routes;
       window.addEventListener('hashchange', () => this.onHashChange(), false);
       this.onHashChange();
@@ -35,16 +28,17 @@ export default class Router {
     swap(path: string) {
       const route: Route = this.routes.find((r) => r.path === path);
       if (!route) {
-        if (this.current) {
-          this.current.close();
+        if (this.currentClose) {
+          this.currentClose();
         }
-        this.content.innerHTML = '';
         return;
       }
-      if (this.current) {
-        this.current.close();
+      if (this.currentClose) {
+        this.currentClose();
       }
-      this.current = route.setup(new URLSearchParams(window.location.search));
-      this.content.appendChild(this.current.el);
+      const makeClose = (close: () => void):void => {
+        this.currentClose = close;
+      };
+      route.setup(this.el, makeClose, new URLSearchParams(window.location.search));
     }
 }
