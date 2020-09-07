@@ -2,7 +2,7 @@
 
 $max-width: 1024px;
 $tablet-width: 768px;
-$min-width: 340px;
+$min-width: 400px;
 
 html {
     background: $color-primary-4;
@@ -159,6 +159,12 @@ main {
 @media (max-width: $tablet-width) {
     main {
         width: 100%;
+    }
+}
+
+@media (max-width: $min-width) {
+    main {
+        width: min-content;
     }
 }
 
