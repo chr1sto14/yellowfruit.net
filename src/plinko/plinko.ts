@@ -1,24 +1,31 @@
 import './plinko.scss';
 import {
-  Engine, Render, World, Body,
+  Engine, Render, World, Body, Bodies,
 } from 'matter-js';
-// import Disc from './disc.ts'
+import Disc from './disc.ts';
 import Peg from './peg.ts';
 import SlotBar from './slotbar.ts';
 import Bumper from './bumper.ts';
 
-const width: number = 320;
-const height: number = 590;
-const nCol: number = 6;
-const radius: number = 5;
+const width: number = 390;
+const height: number = 640;
+const nCol: number = 8;
+const pegGapSize: number = width / nCol;
+const pegRadius: number = 4;
+const nSlotBar:number = 8;
 const slotBarHeight: number = 60;
 const slotBarWidth: number = 5;
+const slotGapSize: number = (width - slotBarWidth * nSlotBar) / nSlotBar;
+const discRadius: number = 0.90 * ((((pegGapSize / 2) - pegRadius)) / 2);
 
 function buildBoard() : Body[] {
   const board = [];
+  // build left wall, right wall, and ground
+  board.push(Bodies.rectangle(0, height / 2, 1, height, { isStatic: true, render: { fillStyle: 'transparent' } }));
+  board.push(Bodies.rectangle(width, height / 2, 1, height, { isStatic: true, render: { fillStyle: 'transparent' } }));
+  board.push(Bodies.rectangle(width / 2, height, width, 1, { isStatic: true, render: { fillStyle: 'transparent' } }));
   // build pegs and bumpers
   const pegStartY: number = 0.1 * height;
-  const pegGapSize: number = width / nCol;
   const pegStartX: number = pegGapSize / 2;
   const nRow: number = 1 + ((height - pegStartY - slotBarHeight - pegGapSize) / pegGapSize);
   for (let i:number = 0; i < nRow; i += 1) {
@@ -26,7 +33,7 @@ function buildBoard() : Body[] {
     if (i % 2 === 0) {
       // full of pegs
       for (let j:number = 0; j < nCol; j += 1) {
-        board.push(Peg(pegStartX + j * pegGapSize, y, radius));
+        board.push(Peg(pegStartX + j * pegGapSize, y, pegRadius));
       }
     } else {
       // left triangle bumper
@@ -36,16 +43,14 @@ function buildBoard() : Body[] {
       // shifted pegs
       for (let j:number = 0; j < (nCol - 1); j += 1) {
         const x:number = pegStartX + j * pegGapSize + pegGapSize / 2;
-        board.push(Peg(x, y, radius));
+        board.push(Peg(x, y, pegRadius));
       }
       // right triangle bumper
       board.push(Bumper(width - (pegGapSize / 8), y, 3, (pegGapSize / 2) / Math.sqrt(3)));
     }
   }
   // build slots
-  const nSlotBar:number = 8;
   const slotBarStartY: number = height - slotBarHeight + slotBarHeight / 2;
-  const slotGapSize: number = (width - slotBarWidth * nSlotBar) / nSlotBar;
   const slotBarStartX: number = slotGapSize;
   for (let i:number = 0; i < nSlotBar; i += 1) {
     const x:number = slotBarStartX + i * slotGapSize;
@@ -60,6 +65,8 @@ export default class Plinko {
 
     el: HTMLElement
 
+    engine: Engine
+
     constructor(el: HTMLElement, makeClose: (f: () => void) => void, params: URLSearchParams) {
       makeClose(this.close);
       params.has('nada');
@@ -71,28 +78,32 @@ export default class Plinko {
       this.canvas.height = height;
       d.appendChild(this.canvas);
 
-      // create an engine
-      const engine = Engine.create();
+      this.engine = Engine.create();
 
       // create a renderer
       const render = Render.create({
         canvas: this.canvas,
         options: {
+          background: '#ffb6c14f', // very light pink
+          wireframes: false,
           hasBounds: true,
           width,
           height,
         },
-        engine,
+        engine: this.engine,
       });
 
       // create the board
-      World.add(engine.world, buildBoard());
+      World.add(this.engine.world, buildBoard());
 
-      // run the engine
-      Engine.run(engine);
-
-      // run the renderer
+      Engine.run(this.engine);
       Render.run(render);
+      this.addDisc(width / 2, 0);
+      setInterval(() => this.addDisc(Math.random() * width, 0), 5000);
+    }
+
+    addDisc(x:number, y:number) : void {
+      World.add(this.engine.world, Disc(x, y, discRadius));
     }
 
     close() : void {
