@@ -5,6 +5,6 @@ export default function Bumper(x:number, y:number, sides:number, radius:number):
     isStatic: true,
     restitution: 0.8,
     friction: 0.05,
-    render: { fillStyle: 'gray' },
+    render: { fillStyle: 'black' },
   });
 }
