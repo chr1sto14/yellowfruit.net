@@ -7,7 +7,37 @@ div {
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content: space-evenly;
+    & * {
+        margin-bottom: 0.5em;
+        margin-top: 0.5em;
+        &:first-child {
+            margin-top: 0;
+        }
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+    button {
+        background-color: $color-primary-3;
+        border-radius: 5px;
+        box-shadow: 0 6px 8px 0 rgba(0,0,0,0.24);
+        cursor: pointer;
+        font-size: 110%;
+        height: fit-content;
+        padding: 0.25em;
+        text-align: center;
+        width: 320px; // matches canvas width
+        &:active {
+            background-color: lightgreen;
+        }
+    }
     canvas {
         border: 1px solid black;
+    }
+}
+
+@media(hover: hover) and (pointer: fine) {
+    div button:hover {
+        background-color: lightgreen;
     }
 }
