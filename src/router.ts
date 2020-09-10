@@ -25,16 +25,20 @@ export default class Router {
       this.swap(window.location.hash);
     }
 
-    swap(path: string) {
+    swap(path: string):void {
       const route: Route = this.routes.find((r) => r.path === path);
       if (!route) {
         if (this.currentClose) {
           this.currentClose();
+          this.currentClose = null;
+          this.el.innerHTML = '';
         }
         return;
       }
       if (this.currentClose) {
         this.currentClose();
+        this.currentClose = null;
+        this.el.innerHTML = '';
       }
       const makeClose = (close: () => void):void => {
         this.currentClose = close;
