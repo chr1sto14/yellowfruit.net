@@ -128,11 +128,7 @@ export default class Plinko {
 
       // create slider
       this.discX = 0;
-      Events.on(this.engine, 'beforeUpdate', (e) => {
-        // if (e.timestamp % 100 < 5) {
-        this.slideDisc();
-        // }
-      });
+      Events.on(this.engine, 'beforeUpdate', (e) =>  this.slideDisc());
 
       Engine.run(this.engine);
       Render.run(render);
