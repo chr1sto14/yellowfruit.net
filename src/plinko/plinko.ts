@@ -1,6 +1,6 @@
 import './plinko.scss';
 import {
-  Engine, Render, World, Body, Bodies, Events,
+  Engine, Render, World, Body, Bodies, Events, Runner,
 } from 'matter-js';
 import Disc from './disc.ts';
 import Peg from './peg.ts';
@@ -84,14 +84,20 @@ export default class Plinko {
 
     engine: Engine
 
+    runner: Runner
+
+    render: Render
+
     discX: number
 
     disc: Body
 
     discDirection: DiscDirection
 
+    timeoutIds: number[]
+
     constructor(el: HTMLElement, makeClose: (f: () => void) => void, params: URLSearchParams) {
-      makeClose(this.close);
+      makeClose(() => this.close());
       params.has('nada');
       this.el = el;
       // outer div
@@ -108,10 +114,12 @@ export default class Plinko {
       this.canvas.height = height;
       d.appendChild(this.canvas);
 
+      this.timeoutIds = [];
+
       this.engine = Engine.create();
 
       // create a renderer
-      const render = Render.create({
+      this.render = Render.create({
         canvas: this.canvas,
         options: {
           background: 'white', // very light pink
@@ -123,21 +131,23 @@ export default class Plinko {
         engine: this.engine,
       });
 
+      this.runner = Runner.create();
+      Runner.run(this.runner, this.engine);
+
       // create the board
       World.add(this.engine.world, buildBoard());
 
       // create slider
       this.discX = 0;
-      Events.on(this.engine, 'beforeUpdate', (e) =>  this.slideDisc());
+      Events.on(this.engine, 'beforeUpdate', () => this.slideDisc());
 
-      Engine.run(this.engine);
-      Render.run(render);
+      Render.run(this.render);
     }
 
     dropDisc() : void {
       const d = Disc(this.discX, discRadius, discRadius, { collisionFilter: { category: 0x0002 } });
       World.add(this.engine.world, d);
-      setTimeout(() => World.remove(this.engine.world, d), 20 * 1000);
+      this.timeoutIds.push(window.setTimeout(() => World.remove(this.engine.world, d), 20 * 1000));
     }
 
     slideDisc() : void {
@@ -163,6 +173,9 @@ export default class Plinko {
     }
 
     close() : void {
+      this.timeoutIds.forEach((id) => window.clearTimeout(id));
+      Render.stop(this.render);
+      Runner.stop(this.runner);
       this.el = null;
       this.canvas = null;
     }
