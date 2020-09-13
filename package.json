@@ -41,6 +41,7 @@
     "webpack-merge": "^5.1.2"
   },
   "dependencies": {
-    "matter-js": "^0.14.2"
+    "matter-js": "^0.14.2",
+    "poly-decomp": "^0.3.0"
   }
 }
