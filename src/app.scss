@@ -2,7 +2,7 @@
 
 $max-width: 1024px;
 $tablet-width: 768px;
-$min-width: 400px;
+$min-width: 320px;
 
 html {
     background: $color-primary-4;
@@ -200,6 +200,6 @@ footer {
 
 @media (max-width: $tablet-width) {
     footer {
-        width: 100%;
+        margin: 0;
     }
 }
