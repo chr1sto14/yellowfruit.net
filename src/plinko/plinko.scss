@@ -37,7 +37,7 @@ div#plinko {
 }
 
 @media(hover: hover) and (pointer: fine) {
-    div button:hover {
+    div#plinko button:hover {
         background-color: lightgreen;
     }
 }
