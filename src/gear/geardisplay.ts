@@ -60,6 +60,7 @@ export default class GearDisplay {
 
       // outer div
       const d = document.createElement('div');
+      d.id = 'geardisplay';
       this.el.appendChild(d);
       // canvas for board
       this.canvas = document.createElement('canvas');

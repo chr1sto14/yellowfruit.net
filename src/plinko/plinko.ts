@@ -102,6 +102,7 @@ export default class Plinko {
       this.el = el;
       // outer div
       const d = document.createElement('div');
+      d.id = 'plinko';
       this.el.appendChild(d);
       // button
       const b = document.createElement('button');

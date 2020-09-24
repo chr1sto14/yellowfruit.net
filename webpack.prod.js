@@ -26,7 +26,7 @@ module.exports = merge(common, {
       new OptimizeCSSAssetsPlugin({}),
     ],
     splitChunks: {
-        'chunks': 'all'
+        chunks: 'all'
     }
   },
   output: {
