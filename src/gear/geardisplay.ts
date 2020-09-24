@@ -1,3 +1,4 @@
+import './geardisplay.scss';
 import {
   Constraint, Engine, Render, World, Runner, Mouse, MouseConstraint,
 } from 'matter-js';
@@ -38,6 +39,8 @@ const gearConfigs = [
 ];
 
 export default class GearDisplay {
+    canvas: HTMLCanvasElement
+
     el: HTMLElement
 
     engine: Engine
@@ -51,15 +54,21 @@ export default class GearDisplay {
       makeClose(() => this.close());
       params.has('nada');
 
+      // outer div
+      const d = document.createElement('div');
+      this.el.appendChild(d);
+      // canvas for board
+      this.canvas = document.createElement('canvas');
+      this.canvas.width = width;
+      this.canvas.height = height;
+      d.appendChild(this.canvas);
+
       this.engine = Engine.create();
-      this.engine.positionIterations = 100;
-      this.engine.velocityIterations = 100;
-      this.engine.enableSleeping = false;
       this.runner = Runner.create();
 
       // create a renderer
       this.render = Render.create({
-        element: this.el,
+        canvas: this.canvas,
         options: {
           background: 'white',
           wireframes: false,
@@ -92,7 +101,7 @@ export default class GearDisplay {
       });
 
       // mouse constraint
-      const mouse = Mouse.create(this.render.canvas);
+      const mouse = Mouse.create(this.canvas);
       const mouseConstraint = MouseConstraint.create(this.engine, {
         mouse,
         constraint: {
@@ -116,5 +125,6 @@ export default class GearDisplay {
       Render.stop(this.render);
       Runner.stop(this.runner);
       this.el = null;
+      this.canvas = null;
     }
 }
