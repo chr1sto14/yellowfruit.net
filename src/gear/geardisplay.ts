@@ -4,37 +4,41 @@ import {
 } from 'matter-js';
 import Gear from './gear.ts';
 
-const width = 600;
-const height = 303;
+const width = 303;
+const height = 600;
 
 const gearConfigs = [
   {
-    x: 82,
-    y: 219,
+    x: 85,
+    y: 84,
     toothHeight: 15,
     radius: 60,
     nTeeth: 14,
+    fillStyle: '#4F6225',
   },
   {
-    x: 226,
-    y: 138,
+    x: 175,
+    y: 226,
     toothHeight: 15,
     radius: 117,
     nTeeth: 29,
+    fillStyle: '#1A4537',
   },
   {
-    x: 400,
-    y: 100,
+    x: 203,
+    y: 400,
     toothHeight: 15,
     radius: 72,
     nTeeth: 17,
+    fillStyle: '#683D28',
   },
   {
-    x: 500,
-    y: 200,
+    x: 103,
+    y: 500,
     toothHeight: 15,
     radius: 80,
     nTeeth: 19,
+    fillStyle: '#521F3E',
   },
 ];
 
@@ -86,6 +90,7 @@ export default class GearDisplay {
           gearCfg.toothHeight,
           gearCfg.radius,
           gearCfg.nTeeth,
+          gearCfg.fillStyle,
         );
         const c = Constraint.create({
           bodyA: g,
@@ -97,7 +102,7 @@ export default class GearDisplay {
             lineWidth: 0,
           },
         });
-        World.add(this.engine.world, [c, g]);
+        World.add(this.engine.world, [g, c]);
       });
 
       // mouse constraint
@@ -105,7 +110,8 @@ export default class GearDisplay {
       const mouseConstraint = MouseConstraint.create(this.engine, {
         mouse,
         constraint: {
-          stiffness: 0,
+          angularStiffness: 0,
+          stiffness: 0.01,
           render: {
             visible: false,
           },
