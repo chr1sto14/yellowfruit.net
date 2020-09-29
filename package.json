@@ -44,6 +44,7 @@
   },
   "dependencies": {
     "matter-js": "^0.14.2",
+    "p5": "^1.1.9",
     "poly-decomp": "^0.3.0"
   }
 }

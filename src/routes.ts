@@ -19,4 +19,13 @@ export default [
       return new GearDisplay(el, makeClose, params);
     },
   },
+  {
+    name: 'pasture',
+    path: '#/pasture',
+    setup: async (el: HTMLElement, makeClose: (f: () => void) => void,
+      params: URLSearchParams):Promise<Module> => {
+      const { default: Pasture } = await import(/* webpackChunkName: "pasture" */ './pasture/pasture.ts');
+      return new Pasture(el, makeClose, params);
+    },
+  },
 ];
