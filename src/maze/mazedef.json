@@ -1,0 +1,449 @@
+{
+    "ballRadius": 10,
+    "nCol": 12,
+    "nRow": 11,
+    "blocks": [
+        {
+            "hole": true,
+            "topHole": false,
+            "midTopHole": false,
+            "midBottomHole": false,
+            "rightBottomHole": false,
+            "bottomHole": false,
+            "topWall": false,
+            "shortMiddleWall": false,
+            "shortTopLeftWall": false,
+            "rightWall": false,
+            "midRightWall": false,
+            "shortUpperRightWall": false,
+            "bottomWall": true,
+            "shortRightBottomWall": false,
+            "shortLeftBottomWall": false,
+            "leftWall": false,
+            "shortBottomLeftWall": false,
+            "shortUpperLeftWall": false,
+            "horizontalMiddleWall": false,
+            "horizontalThreeQuarterWall": false
+        },
+        {
+        },
+        {
+            "shortUpperRightWall": true
+        },
+        {
+        },
+        {
+            "bottomWall": true
+        },
+        {
+            "bottomWall": true
+        },
+        {
+            "bottomWall": true,
+            "rightWall": true
+        },
+        {
+            "hole": true
+        },
+        { },
+        {
+            "hole": true,
+            "shortUpperRightWall": true
+        },
+        {
+            "hole": true
+        },
+        {
+            "horizontalThreeQuarterWall": true
+        },
+
+
+
+
+        {
+        },
+        {
+            "bottomHole": true,
+            "shortUpperRightWall": true
+        },
+        {
+            "bottomHole": true,
+            "shortBottomRightWall": true
+        },
+        {
+            "bottomHole": true,
+            "rightWall": true
+        },
+        {
+        },
+        {
+        },
+        {
+            "hole": true,
+            "rightWall": true,
+            "shortBottomLeftWall": true
+        },
+        {
+            "bottomWall": true
+        },
+        {
+        },
+        {
+            "shortBottomRightWall": true,
+            "shortBottomLeftWall": true,
+            "horizontalMiddleWall": true
+        },
+        {
+            "shortBottomRightWall": true
+        },
+        {
+            "midTopHole": true
+        },
+
+
+
+        {
+            "bottomWall": true
+        },
+        {
+            "rightWall": true
+        },
+        {
+        },
+        {
+            "bottomHole": true
+        },
+        {
+            "rightWall": true,
+            "bottomWall": true
+        },
+        {
+        },
+        {
+            "rightWall": true
+        },
+        {
+            "hole": true,
+            "bottomWall": true
+        },
+        {
+            "bottomWall": true
+        },
+        {
+            "topHole": true,
+            "rightWall": true
+        },
+        {
+            "shortUpperRightWall": true
+        },
+        {
+        },
+
+
+
+
+        {
+        },
+        {
+            "rightWall": true,
+            "bottomWall": true
+        },
+        {
+            "shortUpperRightWall": true
+        },
+        {
+            "rightWall": true
+        },
+        {
+            "hole": true
+        },
+        {
+            "midTopHole": true,
+            "rightWall": true
+        },
+        {
+            "rightWall": true
+        },
+        {
+            "hole": true
+        },
+        {
+        },
+        {
+            "rightWall": true
+        },
+        {
+            "hole": true,
+            "shortBottomRightWall": true
+        },
+        {
+        },
+
+
+
+
+        {
+        },
+        {
+        },
+        {
+            "hole": true
+        },
+        {
+        },
+        {
+            "rightWall": true
+        },
+        {
+        },
+        {
+            "rightWall": true
+        },
+        {
+        },
+        {
+            "bottomHole": true,
+            "rightWall": true
+        },
+        {
+            "midTopHole": true,
+            "shortUpperRightWall": true
+        },
+        {
+            "rightWall": true
+        },
+        {
+        },
+
+
+
+        {
+            "hole": true,
+            "rightWall": true
+        },
+        {
+            "rightWall": true
+        },
+        {
+            "rightWall": true
+        },
+        {
+            "hole": true,
+            "rightWall": true
+        },
+        {
+            "rightWall": true
+        },
+        {
+            "rightWall": true
+        },
+        {
+            "hole": true
+        },
+        {
+        },
+        {
+            "rightWall": true,
+            "horizontalMiddleWall": true
+        },
+        {
+        },
+        {
+            "rightWall": true
+        },
+        {
+            "bottomWall": true
+        },
+
+
+
+
+        {
+        },
+        {
+            "bottomWall": true
+        },
+        {
+            "hole": true,
+            "shortUpperRightWall": true
+        },
+        {
+            "shortUpperRightWall": true
+        },
+        {
+            "rightWall": true
+        },
+        {
+            "bottomWall": true
+        },
+        {
+            "rightWall": true
+        },
+        {
+            "shortBottomRightWall": true
+        },
+        {
+            "shortUpperRightWall": true
+        },
+        {
+            "rightWall": true
+        },
+        {
+        },
+        {
+            "hole": true
+        },
+
+
+
+
+        {
+        },
+        {
+            "hole": true,
+            "topWall": true,
+            "rightWall": true
+        },
+        {
+        },
+        {
+            "hole": true
+        },
+        {
+            "hole": true,
+            "bottomWall": true
+        },
+        {
+        },
+        {
+            "bottomHole": true,
+            "rightWall": true
+        },
+        {
+            "hole": true
+        },
+        {
+            "shortBottomRightWall": true,
+            "shortUpperLeftWall": true,
+            "horizontalMiddleWall": true
+        },
+        {
+            "bottomHole": true,
+            "rightWall": true
+        },
+        {
+            "bottomHole": true
+        },
+        {
+        },
+
+
+
+
+        {
+            "hole": true,
+            "shortLeftBottomWall": true
+        },
+        {
+            "rightWall": true
+        },
+        {
+            "bottomHole": true,
+            "shortBottomRightWall": true
+        },
+        {
+            "rightWall": true
+        },
+        {
+            "topWall": true
+        },
+        {
+            "rightWall": true
+        },
+        {
+        },
+        {
+        },
+        {
+            "rightWall": true
+        },
+        {
+        },
+        {
+        },
+        {
+            "bottomHole": true
+        },
+
+
+
+
+        {
+        },
+        {
+            "midBottomHole": true,
+            "rightWall": true
+        },
+        {
+        },
+        {
+            "rightWall": true
+        },
+        {
+            "rightWall": true
+        },
+        {
+            "hole": true,
+            "rightWall": true
+        },
+        {
+        },
+        {
+            "midTopHole": true,
+            "bottomWall": true
+        },
+        {
+            "rightWall": true
+        },
+        {
+            "rightWall": true
+        },
+        {
+        },
+        {
+        },
+
+
+        {
+        },
+        {
+        },
+        {
+            "rightWall": true
+        },
+        {
+            "hole": true
+        },
+        {
+        },
+        {
+        },
+        {
+        },
+        {
+            "hole": true
+        },
+        {
+        },
+        {
+        },
+        {
+            "hole": true,
+            "rightWall": true
+        },
+        {
+        }
+
+
+    ]
+}

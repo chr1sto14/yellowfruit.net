@@ -19,4 +19,13 @@ export default [
       return new GearDisplay(el, makeClose, params);
     },
   },
+  {
+    name: 'maze',
+    path: '#/maze',
+    setup: async (el: HTMLElement, makeClose: (f: () => void) => void,
+      params: URLSearchParams):Promise<Module> => {
+      const { default: Maze } = await import(/* webpackChunkName: "maze" */ './maze/maze.ts');
+      return new Maze(el, makeClose, params);
+    },
+  },
 ];

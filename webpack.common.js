@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
 
 module.exports = {
   entry: './src/app.ts',
@@ -20,6 +21,10 @@ module.exports = {
         options: {
           name: '[name].[ext]',
         },
+      },
+      {
+          test: /\.svg$/i,
+          loader: 'svg-url-loader',
       },
     ],
   },

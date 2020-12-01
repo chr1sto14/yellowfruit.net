@@ -2,6 +2,8 @@
     "compilerOptions": {
         "sourceMap": true,
         "module": "esnext",
-        "moduleResolution": "node"
-    }
+        "moduleResolution": "node",
+        "resolveJsonModule": true
+    },
+    "include": ["custom.d.ts"]
 }
