@@ -14,7 +14,7 @@
     "url": "git+https://github.com/chr1sto14/yellowfruit.net.git"
   },
   "author": "cmiller@yellowfruit.net",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/chr1sto14/yellowfruit.net/issues"
   },
