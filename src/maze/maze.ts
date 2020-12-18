@@ -114,7 +114,6 @@ export default class Maze {
       this.runner = Runner.create();
 
       // wakeLock button
-      this.noSleep = new NoSleep();
       startBtn.innerHTML = 'Start';
       let initial = true;
       let start = true;
@@ -123,6 +122,7 @@ export default class Maze {
           if (initial) {
             Runner.run(this.runner, this.engine);
             initial = false;
+            this.noSleep = new NoSleep();
           } else {
             this.runner.enabled = true;
           }

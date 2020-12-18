@@ -28,4 +28,13 @@ export default [
       return new Maze(el, makeClose, params);
     },
   },
+  {
+    name: 'spin',
+    path: '#/spin',
+    setup: async (el: HTMLElement, makeClose: (f: () => void) => void,
+      params: URLSearchParams):Promise<Module> => {
+      const { default: Spin } = await import(/* webpackChunkName: "spin" */ './spin/spin.ts');
+      return new Spin(el, makeClose, params);
+    },
+  },
 ];
