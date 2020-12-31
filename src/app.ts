@@ -23,12 +23,8 @@ function buildNav(rs: Route[]): HTMLUListElement {
 }
 
 function app() {
-  const r = new Router(routes, document.body.getElementsByTagName('main')[0]);
+  (() => new Router(routes, document.body.getElementsByTagName('main')[0]))();
   document.body.getElementsByTagName('nav')[0].appendChild(buildNav(routes));
-  if (r) {
-    return true;
-  }
-  return false;
 }
 
 app();

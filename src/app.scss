@@ -117,7 +117,7 @@ header {
             grid-area: menu;
             padding: 0 0.25em;
             width: 1em;
-            &:hover {
+            &:active {
                 background: $color-primary-4;
             }
         }

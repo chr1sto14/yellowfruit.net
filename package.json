@@ -7,7 +7,7 @@
     "build:dev": "webpack --config webpack.dev.js",
     "build:dev:watch": "webpack --config webpack.dev.js --watch",
     "build:prod": "webpack --config webpack.prod.js",
-    "start:dev": "webpack-dev-server --config webpack.dev.js"
+    "start:dev": "webpack serve --config webpack.dev.js"
   },
   "repository": {
     "type": "git",
