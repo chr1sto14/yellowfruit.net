@@ -45,7 +45,7 @@ header {
     flex-direction: column;
     grid-area: header;
     height: min-content;
-    margin: 0 0 0 0.25em;
+    margin: 0;
     user-select: none;
     input#nav {
         display: none;
@@ -108,7 +108,6 @@ header {
             'subnav subnav';
         grid-template-columns: 15vw auto;
         grid-template-rows: 2.5em auto;
-        margin: 0;
         padding: 0;
         width: 100%;
         label#nav_label {
@@ -155,7 +154,7 @@ main {
     &:empty {
         background: none;
         box-shadow: none;
-        height: 100%;
+        height: inherit;
     }
     > * {
         background: $color-primary-2;
@@ -196,7 +195,7 @@ footer {
     font-size: small;
     grid-area: footer;
     justify-content: space-evenly;
-    margin: 0 0 0 0.25em;
+    margin: 0;
     user-select: none;
     width: 100%;
     div#links {
@@ -232,5 +231,8 @@ footer {
 @media (max-width: $tablet-width) {
     footer {
         margin: 0;
+        a {
+            padding: 0.5em;
+        }
     }
 }

@@ -16,13 +16,6 @@ module.exports = {
         loader: 'html-loader',
       },
       {
-        test: /\.pgp$/,
-        loader: 'file-loader',
-        options: {
-          name: '[name].[ext]',
-        },
-      },
-      {
           test: /\.svg$/i,
           loader: 'svg-url-loader',
       },

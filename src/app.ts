@@ -1,5 +1,4 @@
 import './app.scss';
-import './key.pgp';
 
 import Router from './router.ts';
 import routes from './routes.ts';
