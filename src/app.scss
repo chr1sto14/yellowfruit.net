@@ -153,7 +153,9 @@ main {
     height: min-content;
     margin-right: 0.25em;
     &:empty {
-        display: none;
+        background: none;
+        box-shadow: none;
+        height: 100%;
     }
     > * {
         background: $color-primary-2;
@@ -224,10 +226,6 @@ footer {
             overflow: hidden;
             visibility: hidden;
         }
-    }
-    a#pgpkey {
-        user-select: all;
-        width: 100%;
     }
 }
 
