@@ -47,7 +47,7 @@
   },
   "dependencies": {
     "@types/w3c-generic-sensor": "^1.0.5",
-    "matter-js": "^0.17.1",
+    "matter-js": "^0.18.0",
     "nosleep.js": "^0.12.0",
     "poly-decomp": "^0.3.0"
   }
